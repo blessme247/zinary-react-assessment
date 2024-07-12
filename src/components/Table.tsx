@@ -3,7 +3,6 @@ import searchIcon from "../assets/icons/small-search.svg";
 import Dropdown from "./Dropdown";
 import { transactions } from "./data";
 
-
 const statusColors = {
   Successful: "bg-[#31d067] w-[73px] text-white",
   Failed: "bg-[#ea523d] w-[51px] text-white",
@@ -13,20 +12,19 @@ const statusColors = {
 const Table = () => {
   const tabs = ["All", "Withdrawals", "Deposits", "Payments"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
-  const [sliceValue, setSliceValue] = useState(3)
+  const [sliceValue, setSliceValue] = useState(3);
 
   const updateTab = (tabValue: string) => {
     setActiveTab(tabValue);
   };
 
-  const onClickBtn = ()=>{
-    if(sliceValue === 3){
-        setSliceValue(5)
+  const onClickBtn = () => {
+    if (sliceValue === 3) {
+      setSliceValue(5);
+    } else {
+      setSliceValue(3);
     }
-    else {
-        setSliceValue(3)
-    }
-  }
+  };
 
   return (
     <div className="flex flex-col gap-[30px] w-full">
@@ -51,17 +49,17 @@ const Table = () => {
         </div>
         <div className="h-[1px] w-full bg-[#e0e0e0]"></div>
 
-        <div className="w-[96%] flex items-center justify-between mx-auto  h-[52px] ">
-          <div className="h-24px relative w-[130px] sm:w-[198px] ">
+        <div className="w-[96%] flex items-center justify-between mx-auto  h-[54px]">
+          <div className="h-[30px] relative w-[130px] sm:w-[198px]">
             <input
               type="text"
-              className="border-none outline-none w-full pl-[30px] bg-[#DEDEDE] rounded-[8px] text-[14px]"
+              className="border-none outline-none h-full w-full pl-[30px] py-[12px] bg-[#DEDEDE] rounded-[8px] text-[14px]"
               placeholder="Search"
             />
             <img
               src={searchIcon}
               alt="search"
-              className="absolute left-[10px] top-[7px] inline-block"
+              className="absolute left-[10px] top-[9.3px] inline-block"
             />
           </div>
 
@@ -78,29 +76,51 @@ const Table = () => {
       </div>
 
       <div className="overflow-x-scroll">
-        <table className="min-w-full  border-separate" style={{borderSpacing: '0 10px',}}>
+        <table
+          className="min-w-full  border-separate"
+          style={{ borderSpacing: "0 10px" }}
+        >
           <thead className="">
             <tr className="w-full bg-[#848484] rounded-[8px] h-[40px] rounded-[8px] text-white text-left">
               <th className="py-2 px-4 font-[600] text-[12px]">S/N</th>
               <th className="py-2 px-4 font-[600] text-[12px]">Name</th>
-              <th className="py-2 px-4 font-[600] text-[12px]">Transaction Reference</th>
+              <th className="py-2 px-4 font-[600] text-[12px]">
+                Transaction Reference
+              </th>
               <th className="py-2 px-4 font-[600] text-[12px]">Type</th>
               <th className="py-2 px-4 font-[600] text-[12px]">Amount</th>
               <th className="py-2 px-4 font-[600] text-[12px]">Date</th>
-              <th className="py-2 px-4 font-[600] text-[12px]" align="center">Status</th>
+              <th className="py-2 px-4 font-[600] text-[12px]" align="center">
+                Status
+              </th>
               <th className="py-2 px-4 font-[600] text-[12px]">Action</th>
             </tr>
           </thead>
           <tbody className="">
             {transactions.slice(0, sliceValue).map((transaction) => (
               <tr key={transaction.id} className="bg-white h-[60px] ">
-                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]">{transaction.id}</td>
-                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px] min-w-[160px]">{transaction.name}</td>
-                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]">{transaction.reference}</td>
-                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]">{transaction.type}</td>
-                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]" >{transaction.amount}</td>
-                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px] min-w-[180px]">{transaction.date}</td>
-                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]" align="center">
+                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]">
+                  {transaction.id}
+                </td>
+                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px] min-w-[160px]">
+                  {transaction.name}
+                </td>
+                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]">
+                  {transaction.reference}
+                </td>
+                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]">
+                  {transaction.type}
+                </td>
+                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]">
+                  {transaction.amount}
+                </td>
+                <td className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px] min-w-[180px]">
+                  {transaction.date}
+                </td>
+                <td
+                  className="py-2 px-4 text-[14px] text-[#505050] font-[400] leading-[17px]"
+                  align="center"
+                >
                   <span
                     className={`inline-flex items-center justify-center text-white text-[10px] font-[500] h-[18px] rounded-[10px] ${
                       statusColors[transaction.status]
@@ -122,7 +142,12 @@ const Table = () => {
       </div>
 
       <div className="flex items-center w-[90px] h-[40px] mx-auto">
-        <button onClick={onClickBtn} className="inline-flex items-center justify-center w-full h-full text-[14px] text-white bg-[#EC681C] outline-none border-none rounded-[8px]">{sliceValue === 3 ? "View All" : "Show Less"}</button>
+        <button
+          onClick={onClickBtn}
+          className="inline-flex items-center justify-center w-full h-full text-[14px] text-white bg-[#EC681C] outline-none border-none rounded-[8px]"
+        >
+          {sliceValue === 3 ? "View All" : "Show Less"}
+        </button>
       </div>
     </div>
   );

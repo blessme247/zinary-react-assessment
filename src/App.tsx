@@ -8,7 +8,7 @@ import { toggleMobileSideNavState } from "./redux/slices/layoutSlice";
 function App() {
   const location = useLocation();
   const path = location.pathname;
-  const truncatedPathName = path.substring(1).toUpperCase();
+  const truncatedPathName = path == "/" ? "HOME" : path.substring(1).toUpperCase();
   const windowWidth = useWindowSize().width;
   const dispatch = useDispatch();
 

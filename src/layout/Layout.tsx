@@ -3,22 +3,28 @@ import Sidebar from "../components/Sidebar";
 import { Outlet } from "react-router";
 import MobileSidebar from "../components/MobileSidebar";
 import SideNavOverlay from "../components/SideNavOverlay";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const Layout = () => {
+  const open = useSelector(
+    (state: RootState) => state.layout.mobileSideNavOpen
+  );
+
   return (
     <React.Fragment>
-      <main className="flex items-start space-between relative w-screen h-screen bg-[#f8f8f8]">
+      <main className="flex items-start space-between relative w-screen min-h-full">
         <Sidebar />
 
-        <section className="w-full px-[25px] sm:px-[20px] md:w-[80%] h-screen mx-auto py-[24px] overflow-y-scroll">
-          <Suspense fallback={<p className="flex items-center">Loading..</p>}>
+        <section className="absolute left-0 md:left-[20%] w-full px-[25px] sm:px-[20px] md:w-[80%] h-full mx-auto py-[24px] overflow-y-scroll">
+          <Suspense fallback={<div className="flex items-center text-center justify-center h-[300px]">Loading..</div>}>
             <Outlet />
           </Suspense>
         </section>
       </main>
       <MobileSidebar />
 
-      <SideNavOverlay />
+      {open && <SideNavOverlay />}
     </React.Fragment>
   );
 };

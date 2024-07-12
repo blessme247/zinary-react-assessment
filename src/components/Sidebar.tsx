@@ -5,7 +5,7 @@ import VerticalSidebar from "./VerticalSidebar";
 
 const Sidebar = () => {
   return (
-    <div className="hidden md:block w-[18%] h-screen relative pt-[32px] bg-white">
+    <div className="hidden md:block w-[18%] h-full fixed pt-[32px] bg-white overflow-hidden" >
       <div className="px-[16px]">
         <div className="bg-[#ff6600] rounded-[8px] flex items-center justify-between p-[12px]">
           <p className="text-[14px] text-white leading-[16px]">

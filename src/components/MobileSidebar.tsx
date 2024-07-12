@@ -16,12 +16,11 @@ const MobileSidebar = () => {
 
   const closeSideNav = () => {
       dispatch(toggleMobileSideNavState());
-   
   };
 
 
-  return (
-    <div className={`${open ? "translate-x-[0%]" : "translate-x-[-100%]"} mobileSideBar top-0  z-40 w-[65%] h-screen absolute pt-[30px] bg-white transition ease-in duration-250 overflow-y-hidden`}>
+  return  (
+    <div className={`${open ? "translate-x-[0%]" : "translate-x-[-100%]"} top-0  z-40 w-[65%] h-full absolute pt-[30px] bg-white transition ease-in duration-250 overflow-y-hidden`}>
       <div className="w-full flex justify-end pr-[20px]">
       <div className="bg-[#fdefe7] rounded-[100px] h-[30px] cursor-pointer w-[30px] pl-[4px] pr-[7px]  flex items-center " onClick={closeSideNav}>
         <img className="inline-block" src={closeMenuIcon} alt="close" />
@@ -49,7 +48,7 @@ const MobileSidebar = () => {
         />
       </div>
     </div>
-  );
+  ) 
 };
 
 export default MobileSidebar;
