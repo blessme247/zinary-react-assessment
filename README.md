@@ -1,4 +1,4 @@
-# Zinary React Assessment (Bootstrapped with Vite)
+# React Typescript App (Bootstrapped with Vite)
 
 ## Project Setup Guide
 
