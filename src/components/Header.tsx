@@ -11,7 +11,6 @@ const Header = () => {
 
   const windowWidth = useWindowSize().width;
 
-
   const dispatch = useDispatch();
 
   const toggleMobileSideNavVisibility = () => {
