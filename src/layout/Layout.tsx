@@ -24,7 +24,7 @@ const Layout = () => {
       </main>
       <MobileSidebar />
 
-      {open && <SideNavOverlay />}
+       <SideNavOverlay />
     </React.Fragment>
   );
 };

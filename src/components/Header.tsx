@@ -1,6 +1,8 @@
 import searchIcon from "../assets/icons/search.svg";
 import sarah from "../assets/icons/sarah.svg";
 import caret from "../assets/icons/caret-down.svg";
+import mobilemenu from "../assets/icons/mobile-menu.svg"
+
 import { useDispatch } from "react-redux";
 import useWindowSize from "../hooks/UseWindowSize";
 import { toggleMobileSideNavState } from "../redux/slices/layoutSlice";
@@ -30,13 +32,18 @@ const Header = () => {
           src={sarah}
           alt="woman"
           className="inline-block h-[36px] sm:h-full cursor-pointer"
-          onClick={toggleMobileSideNavVisibility}
         />
         <img
           src={caret}
           alt="woman"
           className="down arrow "
           
+        />
+         <img
+          src={mobilemenu}
+          alt="menu"
+          className="inline-block md:hidden h-[30px] ml-[10px] sm:h-full cursor-pointer"
+          onClick={toggleMobileSideNavVisibility}
         />
       </div>
     </div>

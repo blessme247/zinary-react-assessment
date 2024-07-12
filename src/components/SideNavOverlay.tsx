@@ -6,7 +6,7 @@ const SideNavOverlay = () => {
   const open = useSelector((state: RootState) => state.layout.mobileSideNavOpen);
 
   return open ? (
-    <div className="h-screen absolute w-screen z-10 top-0 left-0 bg-[#fbf6f266]"></div>
+    <div className="h-full absolute w-screen z-10 top-0 left-0 bg-[#00000080]"></div>
   ) : null;
 };
 

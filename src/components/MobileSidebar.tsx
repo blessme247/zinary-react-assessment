@@ -40,13 +40,13 @@ const MobileSidebar = () => {
         <VerticalSidebar />
       </ul>
 
-      <div className="absolute bottom-0 w-full h-[140px]">
+      {/* <div className="absolute bottom-0 right-0 w-full h-[80px] ">
         <img
           src={sidebarFooterLogo}
           alt="sidebar footer"
           className="block w-full"
         />
-      </div>
+      </div> */}
     </div>
   ) 
 };
