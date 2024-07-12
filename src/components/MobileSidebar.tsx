@@ -1,4 +1,4 @@
-import sidebarFooterLogo from "../assets/icons/sidebar-footer-design.svg";
+
 import dashboardMenuIcon from "../assets/icons/dashboard-suffix-icon.svg";
 
 import VerticalSidebar from "./VerticalSidebar";
@@ -40,13 +40,7 @@ const MobileSidebar = () => {
         <VerticalSidebar />
       </ul>
 
-      {/* <div className="absolute bottom-0 right-0 w-full h-[80px] ">
-        <img
-          src={sidebarFooterLogo}
-          alt="sidebar footer"
-          className="block w-full"
-        />
-      </div> */}
+     
     </div>
   ) 
 };

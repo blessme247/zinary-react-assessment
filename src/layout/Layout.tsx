@@ -3,13 +3,8 @@ import Sidebar from "../components/Sidebar";
 import { Outlet } from "react-router";
 import MobileSidebar from "../components/MobileSidebar";
 import SideNavOverlay from "../components/SideNavOverlay";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
 
 const Layout = () => {
-  const open = useSelector(
-    (state: RootState) => state.layout.mobileSideNavOpen
-  );
 
   return (
     <React.Fragment>
