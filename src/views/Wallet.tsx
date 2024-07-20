@@ -9,6 +9,36 @@ import useWindowSize from "../hooks/UseWindowSize";
 const Wallet = () => {
   const windowWidth = useWindowSize().width;
 
+  const getContainerWidth = () => {
+    if (windowWidth > 768 && windowWidth < 1024) {
+      return "w-[58%]";
+    } else if (windowWidth > 900) {
+      return "w-[27%]";
+    } else {
+      return "w-full";
+    }
+  };
+
+  const getSecondaryContainerWidth = () => {
+    if (windowWidth > 768 && windowWidth < 1024) {
+      return "w-[40%]";
+    } else if (windowWidth > 900) {
+      return "w-[16%]";
+    } else {
+      return "w-full";
+    }
+  };
+
+  const getChartContainerWidth = () => {
+    if (windowWidth > 768 && windowWidth < 1024) {
+      return "w-full mt-[24px]";
+    } else if (windowWidth > 900) {
+      return "w-[53%]";
+    } else {
+      return "w-full";
+    }
+  };
+
   return (
     <div className="w-full">
       <Header />
@@ -32,13 +62,7 @@ const Wallet = () => {
           className={`flex flex-col md:flex-row md:flex-wrap gap-[24px] md:gap-0 items-start justify-between w-full `}
         >
           <div
-            className={` h-[342px] bg-white rounded-[8px] p-[16px] shadow-custom ${
-              windowWidth > 768 && windowWidth < 1024
-                ? "w-[58%]"
-                : windowWidth > 900
-                ? "w-[27%]"
-                : "w-full"
-            }`}
+            className={` h-[342px] bg-white rounded-[8px] p-[16px] shadow-custom ${getContainerWidth()}`}
           >
             <div className="flex flex-col w-full gap-[24px]">
               <div className="w-full flex flex-wrap gap-[12px] justify-between">
@@ -73,13 +97,7 @@ const Wallet = () => {
             </div>
           </div>
           <div
-            className={` h-[342px] bg-[#ec681c] rounded-[8px] p-[16px] ${
-              windowWidth > 768 && windowWidth < 1024
-                ? "w-[40%]"
-                : windowWidth > 900
-                ? "w-[16%]"
-                : "w-full"
-            }`}
+            className={` h-[342px] bg-[#ec681c] rounded-[8px] p-[16px] ${getSecondaryContainerWidth()}`}
           >
             <div className="h-[303px] flex flex-col justify-between">
               <div className="h-[35px] flex flex-col justify-between">
@@ -133,13 +151,7 @@ const Wallet = () => {
             </div>
           </div>
           <div
-            className={` bg-white h-[342px] shadow-custom rounded-[8px] ${
-              windowWidth > 768 && windowWidth < 1024
-                ? "w-full mt-[24px]"
-                : windowWidth > 900
-                ? "w-[53%]"
-                : "w-full"
-            }`}
+            className={` bg-white h-[342px] shadow-custom rounded-[8px] ${getChartContainerWidth()}`}
           >
             <p className="text-[12px] font-[700] text-[#505050]  ml-[35px] translate-y-[20px]">
               Real-Time Update

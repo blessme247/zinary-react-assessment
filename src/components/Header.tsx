@@ -1,14 +1,13 @@
 import searchIcon from "../assets/icons/search.svg";
 import sarah from "../assets/icons/sarah.svg";
 import caret from "../assets/icons/caret-down.svg";
-import mobilemenu from "../assets/icons/mobile-menu.svg"
+import mobilemenu from "../assets/icons/mobile-menu.svg";
 
 import { useDispatch } from "react-redux";
 import useWindowSize from "../hooks/UseWindowSize";
 import { toggleMobileSideNavState } from "../redux/slices/layoutSlice";
 
 const Header = () => {
-
   const windowWidth = useWindowSize().width;
 
   const dispatch = useDispatch();
@@ -32,16 +31,18 @@ const Header = () => {
           alt="woman"
           className="inline-block h-[36px] sm:h-full cursor-pointer"
         />
+        <img src={caret} alt="woman" className="down arrow " />
         <img
-          src={caret}
-          alt="woman"
-          className="down arrow "
-          
-        />
-         <img
           src={mobilemenu}
           alt="menu"
           className="inline-block md:hidden h-[30px] ml-[10px] sm:h-full cursor-pointer"
+          role="button"
+          tabIndex={0}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              toggleMobileSideNavVisibility();
+            }
+          }}
           onClick={toggleMobileSideNavVisibility}
         />
       </div>

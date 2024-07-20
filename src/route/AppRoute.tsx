@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from '../layout/Layout';
+import { generateRandomKey } from '../utils/generateRandomKey';
 
 
 const Dashboard = lazy(() => import('../views/Dashboard'));
@@ -33,11 +34,11 @@ const AppRoute = () => {
 	return (
 		<Routes>
 			<Route path="/" element={<Layout />}>
-				{routes.map((route, idx) => (
+				{routes.map((route) => (
 					<Route
 						path={route.path}
 						element={<>{route.component}</>}
-						key={idx}
+						key={generateRandomKey(12)}
 					/>
 				))}
 			</Route>

@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react';
-import { AuditIcon, DashboardIcon, LoanIcon, PaymentsIcon, SettingsIcon, StaffIcon, TransactionsIcon, UsersIcon, WalletIcon } from './DashBoardIcons';
+import { AuditIcon, DashboardIcon, LoanIcon, PaymentsIcon, SettingsIcon, StaffIcon, UsersIcon, WalletIcon } from './DashBoardIcons';
 
 interface SubItem {
   id: string;
@@ -61,7 +61,7 @@ const SidebarMenuData = () => {
     {
       id: 'transactions',
       label: 'Transactions',
-      icon: TransactionsIcon,
+      icon: UsersIcon,
       link: '/transactions',
     },
     {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import searchIcon from "../assets/icons/small-search.svg";
 import Dropdown from "./Dropdown";
 import { transactions } from "./data";
+import { generateRandomKey } from "../utils/generateRandomKey";
 
 const statusColors = {
   Successful: "bg-[#31d067] w-[73px] text-white",
@@ -31,13 +32,20 @@ const Table = () => {
       <div className="bg-white py-[10px] h-[110px] rounded-[8px]">
         {/* tabs */}
         <div className="flex items-center justify-start h-[48px] relative">
-          {tabs.map((tab, i) => (
-            <div key={i} className="relative">
+          {tabs.map((tab) => (
+            <div key={generateRandomKey(8)} className="relative">
               <p
-                onClick={() => updateTab(tab)}
                 className={`cursor-pointer transition ease-in duration-200 text-[12px] sm:text-[14px] pl-[20px] leading-[14px] md:leading-[18px] text-[#505050] font-[700] ${
                   activeTab === tab ? "active-tab" : ""
                 }`}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    updateTab(tab);
+                  }
+                }}
+                onClick={() => updateTab(tab)}
               >
                 {tab}
               </p>
